@@ -1,0 +1,30 @@
+{
+  "name": "s3-a7-new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node models/seeds/restaurantSeeder.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a036920022002/S3-A7-NEW.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a036920022002/S3-A7-NEW/issues"
+  },
+  "homepage": "https://github.com/a036920022002/S3-A7-NEW#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-handlebars": "^4.0.2",
+    "mongoose": "^5.9.7"
+  }
+}
