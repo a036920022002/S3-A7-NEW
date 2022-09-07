@@ -45,15 +45,22 @@
           {{this.rating}}
           <i class="fas fa-star fa-xs"></i>
         </span>
-        <a href="/restaurants/{{this._id}}/edit"><span class="badge badge-pill badge-danger font-weight-normal">
-            Edit
-            <i class="far fa-info-square"></i>
-          </span></a>
 
-        <span class="badge badge-pill badge-danger font-weight-normal">
-          Delete
-          <i class="far fa-info-square"></i>
-        </span>
+        <a href="/restaurants/{{this._id}}/edit">
+          <button class="btn btn-major " type="submit" id="delete-button">
+            <i class="far fa-edit"></i>
+          </button>
+        </a>
+
+
+        <form action="/restaurants/{{this._id}}/delete" method="POST" style="display:inline"
+          class="input-group-append m-auto">
+          <button class="btn btn-major " type="submit" id="delete-button">
+            <i class="far fa-trash-alt"></i>
+
+          </button>
+        </form>
+
       </div>
     </div>
 

@@ -50,17 +50,18 @@
     </div>
     <div class="input-group-append m-auto">
       <a href="/restaurants/{{restaurants._id}}/edit" class="mx-auto mb-2"><button class="btn btn-major " type="submit"
-          id="back-button">
+          id="edit-button">
           <i class="far fa-edit"></i>
           Edit
         </button></a>
     </div>
-    <div class="input-group-append m-auto">
-      <a href="/restaurants/{{restaurants._id}}/delete" class="mx-auto mb-2"><button class="btn btn-major "
-          type="submit" id="back-button">
-          <i class="far fa-trash-alt"></i>
-          Delete
-        </button></a>
-    </div>
+
+    <form action="/restaurants/{{restaurants._id}}/delete" method="POST" style="display:inline"
+      class="input-group-append m-auto">
+      <button class="btn btn-major " type="submit" id="-button">
+        <i class="far fa-trash-alt"></i>
+        Delete
+      </button>
+    </form>
   </div>
 </div>

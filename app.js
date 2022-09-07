@@ -78,19 +78,46 @@ app.get('/restaurants/:restaurant_id/edit', (req, res) => {
 app.post('/restaurants/:restaurant_id/edit', (req, res) => {
   const id = req.params.restaurant_id
   const name = req.body.name
+  const name_en = req.body.name_en
+  const location = req.body.location
+  const category = req.body.category
+  const image = req.body.image
+  const phone = req.body.phone
+  const google_map = req.body.google_map
+  const description = req.body.description
+  const rating = req.body.rating
   console.log('req.body.name', name)
   console.log('req.params.restaurant_id', id)
   console.log('reqBody', req.body)
+  console.log('------------')
   return restaurantAll.findById(id)
     .then(restaurant => {
       console.log(restaurant)
       restaurant.name = name
+      restaurant.name_en = name_en
+      restaurant.location = location
+      restaurant.category = category
+      restaurant.image = image
+      restaurant.phone = phone
+      restaurant.google_map = google_map
+      restaurant.description = description
+      restaurant.rating = rating
       console.log(restaurant)
       return restaurant.save()
     })
-    .then(() => { res.redirect('/restaurants/:restaurant_id') })
+    .then(() => res.redirect(`/restaurants/${id}`))
     .catch(error => console.log(error))
 
+})
+
+//刪除餐廳
+app.post('/restaurants/:restaurant_id/delete', (req, res) => {
+  const id = req.params.restaurant_id
+  console.log(id)
+  return restaurantAll.findById(id)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect(`/`))
+    .catch(error => console.log(error))
 })
 
 //搜尋
