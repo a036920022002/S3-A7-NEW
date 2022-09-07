@@ -1,0 +1,53 @@
+<div class="container" style="width :auto">
+  <form action="/restaurants/{{restaurants._id}}/edit" method="POST" class="row g-3 my-2">
+    <div class="col-md-6">
+      <label class="form-label">餐廳名稱</label>
+      <input type="text" class="form-control" name="name" value="{{restaurants.name}}">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">餐廳英文名稱</label>
+      <input type="text" class="form-control" name="name_en" value="{{restaurants.name_en}}">
+    </div>
+    <div class="col-6">
+      <label class="form-label">地址</label>
+      <input type="text" class="form-control" name="location" value="{{restaurants.location}}">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">餐廳類別</label>
+      <input type="text" class="form-control" name="category" value="{{restaurants.category}}">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">照片</label>
+      <input type="text" class="form-control" name="image" value="{{restaurants.image}}">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">電話</label>
+      <input type="text" class="form-control" name="phone" value="{{restaurants.phone}}">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">google_map</label>
+      <input type="text" class="form-control" name="google_map" value="{{restaurants.google_map}}">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">介紹</label>
+      <input type="text" class="form-control" name="description" value="{{restaurants.description}}">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">評分</label>
+      <input type="text" class="form-control" name="rating" value="{{restaurants.rating}}">
+    </div>
+    <div class="input-group-append">
+      <button class="btn btn-major " type="submit" id="save-button">
+        Save
+      </button>
+      <a href="/" class="mx-auto mb-2">
+        <button class="btn btn-major" id="back-button">
+          <i class="fas fa-arrow-left"></i>
+          Back
+        </button>
+      </a>
+
+    </div>
+  </form>
+
+</div>

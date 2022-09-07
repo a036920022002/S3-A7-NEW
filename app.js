@@ -5,6 +5,7 @@ const restaurantAll = require('./models/restaurant')
 const bodyParser = require('body-parser')
 const app = express()
 require('dotenv').config()
+app.use(express.static('public'))
 
 const MY_ENV = process.env.MY_ENV
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
@@ -29,11 +30,12 @@ app.get('/', (req, res) => {
       res.render('index', { restaurants: restaurants }))
     .catch(error => console.error(error))
 })
-
+//render 首頁
 app.get('/restaurant/New', (req, res) => {
   res.render('new')
 })
 
+//新增資料
 app.post('/restaurant', (req, res) => {
   const reqbody = req.body
   return restaurantAll.create({
@@ -55,11 +57,42 @@ app.post('/restaurant', (req, res) => {
 
 //餐廳介紹
 app.get('/restaurants/:restaurant_id', (req, res) => {
-  console.log(req.params)
-
-  restaurantOne = restaurantList.results.find(restaurant => restaurant.id.toString() === req.params.restaurant_id)
-  res.render('show', { restaurant: restaurantOne })
+  const id = req.params.restaurant_id
+  return restaurantAll.findById(id)
+    .lean()
+    .then(restaurants => res.render('show', { restaurants }))
+    .catch(error => console.log(error))
 })
+
+//修改
+app.get('/restaurants/:restaurant_id/edit', (req, res) => {
+  const id = req.params.restaurant_id
+  return restaurantAll.findById(id)
+    .lean()
+    .then(restaurants => {
+      res.render('edit', { restaurants })
+    })
+    .catch(error => console.log(error))
+})
+
+app.post('/restaurants/:restaurant_id/edit', (req, res) => {
+  const id = req.params.restaurant_id
+  const name = req.body.name
+  console.log('req.body.name', name)
+  console.log('req.params.restaurant_id', id)
+  console.log('reqBody', req.body)
+  return restaurantAll.findById(id)
+    .then(restaurant => {
+      console.log(restaurant)
+      restaurant.name = name
+      console.log(restaurant)
+      return restaurant.save()
+    })
+    .then(() => { res.redirect('/restaurants/:restaurant_id') })
+    .catch(error => console.log(error))
+
+})
+
 //搜尋
 app.get('/search', (req, res) => {
   console.log(req.query)
