@@ -18,6 +18,7 @@
 
 # 更新紀錄
 + 2022/09/08 可新增/編輯/刪除/查詢
++ 2022/09/08 RESTful API/重構Router/Mongoose
 
 # Tool version
 |Tool|Version|
