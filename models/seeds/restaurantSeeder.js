@@ -1,7 +1,7 @@
 require('../../config/mongoose')
 
 const restaurantList = require('./restaurant.json')
-
+const restaurant = require('../restaurant')
 const db = require('../../config/mongoose')
 
 db.once('open', () => {
@@ -20,8 +20,6 @@ db.once('open', () => {
         rating: `${restaurantList.results[i].rating}`,
         description: `${restaurantList.results[i].description}`
       }
-
     )
   }
-
 })
