@@ -48,7 +48,7 @@ router.get('/:restaurant_id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-router.post('/:restaurant_id', (req, res) => {
+router.put('/:restaurant_id', (req, res) => {
   const id = req.params.restaurant_id
   const name = req.body.name
   const name_en = req.body.name_en
@@ -59,10 +59,10 @@ router.post('/:restaurant_id', (req, res) => {
   const google_map = req.body.google_map
   const description = req.body.description
   const rating = req.body.rating
-  console.log('req.body.name', name)
-  console.log('req.params.restaurant_id', id)
-  console.log('reqBody', req.body)
-  console.log('------------')
+  // console.log('req.body.name', name)
+  // console.log('req.params.restaurant_id', id)
+  // console.log('reqBody', req.body)
+  // console.log('------------')
   return restaurantAll.findById(id)
     .then(restaurant => {
       console.log(restaurant)
@@ -78,13 +78,13 @@ router.post('/:restaurant_id', (req, res) => {
       console.log(restaurant)
       return restaurant.save()
     })
-    .then(() => res.redirect(`/restaurants/${id}`))
+    .then(() => res.redirect(`/restaurant/${id}`))
     .catch(error => console.log(error))
 
 })
 
 //刪除餐廳
-router.post('/:restaurant_id', (req, res) => {
+router.delete('/:restaurant_id', (req, res) => {
   const id = req.params.restaurant_id
   console.log(id)
   return restaurantAll.findById(id)
@@ -93,18 +93,6 @@ router.post('/:restaurant_id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-//搜尋
-router.get('/search', (req, res) => {
-  console.log(req.query)
-  const keyword = req.query.keyword
-  const restaurant = restaurantList.results.filter(restaurant => {
-    if (restaurant.name.toLowerCase().includes(keyword.toLowerCase())) {
-      return restaurant
-    } else if (restaurant.category.toLowerCase().includes(keyword.toLowerCase())) {
-      return restaurant
-    }
-  })
-  res.render('index', { restaurant: restaurant, keyword: keyword })
-})
+
 
 module.exports = router
