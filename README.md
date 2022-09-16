@@ -1,30 +1,42 @@
 # Alpha Camp Semester 2-3 S3-A7 Assignment
 **學期2-3 打造餐廳清單**
 
+### 開啟方式
+**npm run dev** 
+### 請安裝以下工具
+|Tool|Version|
+|----|-------|
+|Express|4.18.1|
+|Express-handlebars|4.0.2|
+|body-parser|1.20.0|
+|dotenv|16.0.2|
+|mongoose|5.9.7|
+|method-override|3.0.0|
+|bootstrap.css|4.3.1|
+|bootstrap.js|5.0.2|
+|popper|2.9.1|
+
+
+
 # 功能 
-##### 使用者可以在首頁看到所有餐廳與它們的簡單資料：
+##### 可在首頁看到所有餐廳：
 + 餐廳照片
 + 餐廳名稱
 + 餐廳分類
 + 餐廳評分
-##### 使用者可以再點進去看餐廳的詳細資訊：
+##### 可檢視餐廳詳細資訊：
 + 類別
 + 地址
 + 電話
 + 描述
 + 圖片
-##### 使用者可以透過搜尋餐廳名稱來找到特定的餐廳
-##### 使用者可以透過搜尋餐廳類別來找到特定的餐廳
+##### 可快速搜尋餐廳名稱/類別
+
 
 # 更新紀錄
 + 2022/09/08 可新增/編輯/刪除/查詢
 + 2022/09/08 RESTful API/重構Router/Mongoose
 
-# Tool version
-|Tool|Version|
-|----|-------|
-|Express|4.16.4|
-|Express-handlebars|3.0.0|
-|bootstrap.css|4.3.1|
-|bootstrap.js|5.0.2|
-|popper|2.9.1|
+
+
+
