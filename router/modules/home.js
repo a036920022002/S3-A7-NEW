@@ -20,10 +20,8 @@ router.get('/search', (req, res) => {
     .lean()
     .then(restaurantList => {
       const searchrestaurant = restaurantList.filter(restaurants => {
-        if (restaurants.name.toLowerCase().includes(keyword)) {
+        if (restaurants.name.toLowerCase().includes(keyword) || restaurants.category.toLowerCase().includes(keyword)) {
           return true;
-        } else {
-          return restaurants.category.toLowerCase().includes(keyword)
         }
       })
       res.render('index', { restaurants: searchrestaurant, keyword: keyword })
