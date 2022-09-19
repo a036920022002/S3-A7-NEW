@@ -6,7 +6,6 @@ const db = require('../../config/mongoose')
 
 db.once('open', () => {
   console.log('mongodb connected!')
-  console.log(restaurantList.results[0].name)
   for (let i = 0; i < restaurantList.results.length; i++) {
     restaurant.create(
       {

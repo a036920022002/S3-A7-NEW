@@ -59,13 +59,9 @@ router.put('/:restaurant_id', (req, res) => {
   const google_map = req.body.google_map
   const description = req.body.description
   const rating = req.body.rating
-  // console.log('req.body.name', name)
-  // console.log('req.params.restaurant_id', id)
-  // console.log('reqBody', req.body)
-  // console.log('------------')
+
   return restaurantAll.findById(id)
     .then(restaurant => {
-      console.log(restaurant)
       restaurant.name = name
       restaurant.name_en = name_en
       restaurant.location = location
@@ -75,7 +71,6 @@ router.put('/:restaurant_id', (req, res) => {
       restaurant.google_map = google_map
       restaurant.description = description
       restaurant.rating = rating
-      console.log(restaurant)
       return restaurant.save()
     })
     .then(() => res.redirect(`/restaurant/${id}`))
@@ -86,7 +81,6 @@ router.put('/:restaurant_id', (req, res) => {
 //刪除餐廳
 router.delete('/:restaurant_id', (req, res) => {
   const id = req.params.restaurant_id
-  console.log(id)
   return restaurantAll.findById(id)
     .then(restaurant => restaurant.remove())
     .then(() => res.redirect(`/`))
