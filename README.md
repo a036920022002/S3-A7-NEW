@@ -2,7 +2,24 @@
 學期2-3 打造餐廳清單
 
 ### 開啟方式
-npm run dev
++ 於終端機執行程式碼 
+```js
+ git clone https://github.com/a036920022002/S3-A7-NEW
+ ```
++ 於資料夾中增加.env 檔
+並新增以下環境參數
+```js
+My_ENV= "mongodb+srv://alpha:camp@cluster0.fye8rmm.mongodb.net/S3-A7-NEW?retryWrites=true&w=majority"`
+```
++ 於終端機執行 
+`npm i express@4.18.1`
+及 
+`npm i dotenv@16.0.2`
+
++ 執行腳本
+`npm run dev`
+
++ 進入主畫面
 
 ### 請安裝以下工具
 |Tool|Version|
@@ -29,6 +46,7 @@ npm run dev
 
 
 # 更新紀錄
+- 2022/09/19 更新README使用方式
 - 2022/09/08 可新增/編輯/刪除/查詢
 - 2022/09/08 RESTful API/重構Router/Mongoose
 
